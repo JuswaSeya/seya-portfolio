@@ -668,3 +668,30 @@ footer {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
 }
+
+
+.about-items {
+    display: flex;
+    flex-wrap: nowrap; /* Forces everything into one line */
+    align-items: center;
+    gap: 30px; /* Adjust this spacing to fit your design */
+}
+
+.about-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap; /* Prevents the text inside from wrapping */
+}
+
+.about-item img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.about-title,
+.about-subtitle {
+    display: inline-block;
+}
