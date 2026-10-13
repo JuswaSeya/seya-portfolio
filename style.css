@@ -1,0 +1,364 @@
+/* =========================================
+   BASE STYLES & VARIABLES
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Mono&display=swap');
+
+:root {
+    --bg-color: #0a0a0a;
+    --text-main: #ffffff;
+    --text-muted: #999999;
+    --text-dark: #666666;
+    --accent: #ff3b30; /* Red accent color */
+    --border-color: #222222;
+    --font-main: 'Inter', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Makes clicking nav links scroll smoothly */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 64px;
+    padding-top: 120px; /* Pushes content down so fixed nav doesn't cover it */
+    overflow-x: hidden;
+}
+
+/* =========================================
+   FIXED NAVIGATION BAR
+   ========================================= */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 24px 64px;
+    background-color: rgba(10, 10, 10, 0.85); /* Dark background with transparency */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    z-index: 1000;
+    list-style: none;
+}
+
+nav li {
+    list-style: none;
+}
+
+nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--text-main);
+}
+
+/* Red underline effect on hover */
+nav a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s;
+    margin-top: 4px;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* =========================================
+   HEADER (Page Title)
+   ========================================= */
+header {
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 64px;
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+header h1::after {
+    content: '.';
+    color: var(--accent);
+    font-size: 32px;
+    line-height: 0;
+    vertical-align: middle;
+}
+
+/* =========================================
+   HERO SECTION (#home)
+   ========================================= */
+#home {
+    margin-bottom: 80px;
+}
+
+/* The Profile Image */
+#home img {
+    float: right;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 25px rgba(255, 59, 48, 0.15); /* Soft red glow */
+    margin: 0 0 32px 64px;
+}
+
+#home h1 {
+    font-size: 72px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin-bottom: 8px;
+    margin-top: 16px;
+}
+
+#home h1::after {
+    content: '.';
+    color: var(--accent);
+}
+
+#home h3 {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    margin-bottom: 32px;
+}
+
+#home p {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 650px;
+    line-height: 1.8;
+    margin-bottom: 48px;
+}
+
+/* =========================================
+   CONTENT SECTIONS (Div Grid Layout)
+   ========================================= */
+#about, #skills, #experience, #achievements, #projects, #contact {
+    display: grid;
+    grid-template-columns: 250px 1fr; /* 250px for Title, 1fr for Content */
+    gap: 48px;
+    padding: 80px 0;
+    border-top: 1px solid var(--border-color);
+    clear: both; /* Clears the floated profile image */
+}
+
+#about h2, #skills h2, #experience h2, #achievements h2, #projects h2, #contact h2 {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* Dynamic Section Numbering */
+#about h2::before { content: '01 / '; color: var(--accent); font-weight: 700; }
+#skills h2::before { content: '02 / '; color: var(--accent); font-weight: 700; }
+#achievements h2::before { content: '03 / '; color: var(--accent); font-weight: 700; }
+#experience h2::before { content: '04 / '; color: var(--accent); font-weight: 700; }
+#projects h2::before { content: '05 / '; color: var(--accent); font-weight: 700; }
+#contact h2::before { content: '06 / '; color: var(--accent); font-weight: 700; }
+
+/* Section Paragraphs */
+#about p, #contact p {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 800px;
+    line-height: 1.8;
+}
+
+/* Lists */
+#skills ul, #experience ul, #achievements ul, #projects ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#skills li, #experience li, #achievements li {
+    font-size: 18px;
+    color: #cccccc;
+    margin-bottom: 19px;
+    padding-left: 24px;
+    position: relative;
+    line-height: 1.6;
+}
+
+#skills li::before, #experience li::before, #achievements li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+/* Graduate Logo & Text */
+img.make-black {
+    width: 20px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 10px;
+    filter: grayscale(100%) brightness(1);
+    display: inline-block;
+}
+
+#about span {
+    font-size: 18px;
+    color: var(--text-muted);
+    display: inline-block;
+    margin-bottom: 32px;
+}
+
+/* =========================================
+   PROJECTS SECTION
+   ========================================= */
+#projects ul {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+#projects a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 29px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 16px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+    display: block;
+}
+
+#projects a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* =========================================
+   CONTACT SECTION (Button)
+   ========================================= */
+#contact a[href^="mailto"] {
+    display: inline-block;
+    background-color: var(--accent);
+    color: #ffffff;
+    padding: 16px 32px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#contact a[href^="mailto"]:hover {
+    background-color: #d92b22;
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+footer {
+    padding: 48px 0;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    color: var(--text-dark);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    margin-top: 32px;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN (Mobile & Tablets)
+   ========================================= */
+@media (max-width: 1024px) {
+    #home img {
+        width: 320px;
+        height: 320px;
+        margin-left: 32px;
+    }
+    #home h1 {
+        font-size: 56px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 0 24px;
+        padding-top: 160px;
+    }
+
+    nav {
+        padding: 16px 24px;
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    header {
+        margin-bottom: 32px;
+        text-align: center;
+    }
+
+    /* Center the profile image on mobile */
+    #home img {
+        float: none;
+        display: block;
+        margin: 0 auto 32px auto;
+        width: 250px;
+        height: 250px;
+    }
+
+    #home h1, #home h3, #home p {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #home h1 {
+        font-size: 40px;
+    }
+
+    /* Stack sections into 1 column */
+    #about, #skills, #experience, #achievements, #projects, #contact {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 48px 0;
+    }
+
+    #projects a {
+        font-size: 22px;
+    }
+}
