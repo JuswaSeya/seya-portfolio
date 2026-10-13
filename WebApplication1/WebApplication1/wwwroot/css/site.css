@@ -1,0 +1,48 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    /* Dark base color */
+    background-color: #080b13;
+    /* Layered radial glow effects */
+    background-image:
+    /* Soft blue glow top-left behind hero header */
+    radial-gradient(circle at 15% 15%, rgba(24, 60, 105, 0.45) 0%, transparent 45%),
+    /* Muted violet/indigo glow center-right behind section cards */
+    radial-gradient(circle at 85% 55%, rgba(45, 40, 75, 0.5) 0%, transparent 50%),
+    /* Very subtle deep navy ambient wash bottom-left */
+    radial-gradient(circle at 20% 85%, rgba(18, 30, 55, 0.3) 0%, transparent 40%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
