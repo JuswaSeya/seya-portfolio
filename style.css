@@ -670,20 +670,27 @@ footer {
 }
 
 
+/* The parent container */
 .about-items {
-    display: flex;
-    flex-wrap: nowrap; /* Forces everything into one line */
-    align-items: center;
-    gap: 30px; /* Adjust this spacing to fit your design */
+    display: flex !important;       /* Forces flexbox */
+    flex-direction: row !important; /* Forces horizontal layout */
+    flex-wrap: nowrap !important;   /* Prevents items from dropping to the next line */
+    align-items: center;            /* Vertically centers the icons and text */
+    gap: 30px;                      /* Space between the 3 items */
+    width: 100%;                    /* Ensures it takes full width */
+    overflow-x: auto;               /* Adds a scrollbar if the screen is too small to fit them */
 }
 
+/* The individual items (Icon + Text) */
 .about-item {
     display: flex;
     align-items: center;
-    gap: 12px;
-    white-space: nowrap; /* Prevents the text inside from wrapping */
+    gap: 10px;                      /* Space between icon and text */
+    white-space: nowrap;            /* Prevents the text from wrapping */
+    flex-shrink: 0;                 /* Prevents the items from squishing */
 }
 
+/* The icons */
 .about-item img {
     width: 24px;
     height: 24px;
@@ -691,7 +698,9 @@ footer {
     flex-shrink: 0;
 }
 
+/* The text */
 .about-title,
 .about-subtitle {
     display: inline-block;
+    white-space: nowrap;            /* Double-enforces no text wrapping */
 }
