@@ -246,7 +246,7 @@ header h1::after {
 
 #skills li {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 14px;
     background-color: #111111;
     border: 1px solid var(--border-color);
@@ -267,6 +267,7 @@ header h1::after {
     content: '';
     width: 6px;
     height: 6px;
+    margin-top: 9px;
     background-color: var(--accent);
     border-radius: 50%;
     flex-shrink: 0;
@@ -278,6 +279,30 @@ header h1::after {
     border-color: var(--accent);
     box-shadow: 0 8px 20px rgba(255, 59, 48, 0.15);
     color: var(--text-main);
+}
+
+/* Skill text wrapper */
+.skill-body {
+    display: inline;
+    min-width: 0;
+    line-height: inherit;
+}
+
+/* Skill category label (text before the colon) */
+.skill-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-main);
+    margin-bottom: 4px;
+    transition: color 0.3s ease;
+}
+
+#skills li:hover .skill-label {
+    color: var(--accent);
 }
 
 /* =========================================================
